@@ -3,14 +3,9 @@ import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import './globals.css'
 import { Metadata } from 'next'
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
+import { ClerkProvider } from '@clerk/nextjs'
 import { dark } from '@clerk/themes'
+import { Provider } from './Provider'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -44,13 +39,7 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          {children}
+          <Provider>{children}</Provider>
         </body>
       </html>
     </ClerkProvider>
