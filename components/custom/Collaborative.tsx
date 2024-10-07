@@ -4,6 +4,7 @@ import { ClientSideSuspense, RoomProvider } from '@liveblocks/react/suspense'
 import { Editor } from '@/components/editor/Editor'
 import Header from '@/components/custom/Header'
 import Loader from '@/components/custom/Loader'
+import ShareModal from '@/components/custom/ShareModal'
 import { Input } from '@/components/ui/input'
 import Image from 'next/image'
 import ActiveCollaborators from '@/components/custom/ActiveCollaborators'
@@ -56,7 +57,7 @@ const Collaborative = ({
 
         await updateDocument(roomId, documentTitle)
 
-        // setIsEditing(false)
+        setIsEditing(false)
         // setIsLoading(false)
       }
     }
@@ -120,6 +121,13 @@ const Collaborative = ({
 
             <div className="flex w-full flex-1 justify-end gap-2 sm:gap-3">
               <ActiveCollaborators />
+
+              <ShareModal
+                roomId={roomId}
+                collaborators={users}
+                creatorId={roomMetadata.creatorId}
+                currentUserType={currentUserType}
+              />
 
               <SignedOut>
                 <SignInButton />
