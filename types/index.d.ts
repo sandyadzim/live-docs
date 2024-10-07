@@ -53,6 +53,7 @@ declare type ShareDocumentDialogProps = {
 declare type HeaderProps = {
   children: React.ReactNode
   className?: string
+  isHome?: boolean
 }
 
 declare type CollaboratorProps = {
