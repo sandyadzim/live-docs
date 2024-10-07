@@ -16,7 +16,7 @@ export default async function DocumentDetail({
     userId: clerkUser.emailAddresses[0].emailAddress,
   })
 
-  if (!room) redirect('/')
+  if (!room) redirect('/editor')
 
   const userIds = Object.keys(room.usersAccesses)
   const users = await getClerkUsers({ userIds })

@@ -19,6 +19,7 @@ import {
 } from '@liveblocks/react-lexical'
 import { useThreads } from '@liveblocks/react/suspense'
 import Loader from '@/components/custom/Loader'
+import Comments from '@/components/custom/Comments'
 import FloatingToolbarPlugin from '@/components/editor/plugins/FloatingToolbarPlugin'
 
 // Catch any errors that occur during Lexical updates and log them
@@ -79,7 +80,7 @@ export function Editor({
           <LiveblocksPlugin>
             <FloatingComposer className="w-[350px]" />
             <FloatingThreads threads={threads} />
-            {/* <Comments /> */}
+            <Comments />
           </LiveblocksPlugin>
         </div>
       </div>
