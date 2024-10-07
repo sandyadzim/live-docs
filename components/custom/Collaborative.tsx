@@ -11,8 +11,12 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 import { useEffect, useRef, useState } from 'react'
 import { updateDocument } from '@/lib/actions/room.action'
 
-const Collaborative = ({ roomId, roomMetadata }: CollaborativeRoomProps) => {
-  const currentUserType = 'editor'
+const Collaborative = ({
+  roomId,
+  roomMetadata,
+  users,
+  currentUserType,
+}: CollaborativeRoomProps) => {
   const [documentTitle, setDocumentTitle] = useState(roomMetadata.title)
   const [isEditing, setIsEditing] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -48,12 +52,12 @@ const Collaborative = ({ roomId, roomMetadata }: CollaborativeRoomProps) => {
         containerRef.current &&
         !containerRef.current.contains(e.target as Node)
       ) {
-        setIsLoading(true)
+        // setIsLoading(true)
 
         await updateDocument(roomId, documentTitle)
 
-        setIsEditing(false)
-        setIsLoading(false)
+        // setIsEditing(false)
+        // setIsLoading(false)
       }
     }
 
@@ -125,7 +129,7 @@ const Collaborative = ({ roomId, roomMetadata }: CollaborativeRoomProps) => {
               </SignedIn>
             </div>
           </Header>
-          <Editor />
+          <Editor roomId={roomId} currentUserType={currentUserType} />
         </div>
       </ClientSideSuspense>
     </RoomProvider>
