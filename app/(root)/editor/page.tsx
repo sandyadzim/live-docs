@@ -1,6 +1,7 @@
 import Header from '@/components/custom/Header'
 import AddDocumentBtn from '@/components/custom/AddDocumentBtn'
 import DeleteModal from '@/components/custom/DeleteModal'
+import Notifications from '@/components/custom/Notifications'
 import { SignedIn, UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image'
@@ -22,7 +23,7 @@ export default async function EditorPage() {
     <main className="home-container">
       <Header className="sticky left-0 top-0">
         <div className="flex items-center gap-2 lg:gap-4">
-          {/* <Notifications />*/}
+          <Notifications />
           <SignedIn>
             <UserButton />
           </SignedIn>
