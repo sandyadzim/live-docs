@@ -1,5 +1,6 @@
 import Header from '@/components/custom/Header'
 import AddDocumentBtn from '@/components/custom/AddDocumentBtn'
+import DeleteModal from '@/components/custom/DeleteModal'
 import { SignedIn, UserButton } from '@clerk/nextjs'
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image'
@@ -59,6 +60,7 @@ export default async function EditorPage() {
                     </p>
                   </div>
                 </Link>
+                <DeleteModal roomId={id} />
               </li>
             ))}
           </ul>

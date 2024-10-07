@@ -48,8 +48,12 @@ const ShareModal = ({
     setIsLoading(false)
   }
 
+  const handleOpen = () => {
+    if (currentUserType === 'editor') setIsOpen(!isOpen)
+  }
+
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+    <Dialog open={isOpen} onOpenChange={handleOpen}>
       <DialogTrigger>
         <Button
           className="gradient-blue flex h-9 gap-1 px-4"
