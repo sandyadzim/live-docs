@@ -36,9 +36,9 @@ const DeleteModal = ({ roomId }: DeleteModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button className="min-w-9 rounded-xl bg-transparent p-2 transition-all">
+        <Button className="min-w-9 rounded-xl bg-r p-2 transition-all">
           <Image
-            src="/assets/icons/delete.svg"
+            src="/assets/icons/trash-bin.svg"
             alt="delete"
             width={20}
             height={20}
@@ -47,7 +47,7 @@ const DeleteModal = ({ roomId }: DeleteModalProps) => {
         </Button>
       </DialogTrigger>
       <DialogContent className="shad-dialog">
-        <DialogHeader>
+        <DialogHeader className="items-center">
           <Image
             src="/assets/icons/delete-modal.svg"
             alt="delete"
@@ -56,21 +56,23 @@ const DeleteModal = ({ roomId }: DeleteModalProps) => {
             className="mb-4"
           />
           <DialogTitle>Delete document</DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-center">
             Are you sure you want to delete this document? This action cannot be
             undone.
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="mt-5">
-          <DialogClose asChild className="w-full bg-dark-400 text-white">
-            Cancel
+        <DialogFooter className="sm:justify-start">
+          <DialogClose asChild>
+            <Button type="button" className="w-full" disabled={isLoading}>
+              Cancel
+            </Button>
           </DialogClose>
 
           <Button
-            variant="destructive"
             onClick={deleteDocumentHandler}
-            className="gradient-red w-full"
+            className="bg-r w-full mb-3 md:mb-0"
+            disabled={isLoading}
           >
             {isLoading ? 'Deleting...' : 'Delete'}
           </Button>

@@ -30,7 +30,7 @@ const Notifications = () => {
           height={24}
         />
         {count > 0 && (
-          <div className="absolute right-2 top-2 z-20 size-2 rounded-full bg-blue-500" />
+          <div className="absolute right-2 top-2 z-20 size-2 rounded-full bg-r" />
         )}
       </PopoverTrigger>
       <PopoverContent align="end" className="shad-popover">
@@ -47,7 +47,6 @@ const Notifications = () => {
                 <InboxNotification
                   key={notification.id}
                   inboxNotification={notification}
-                  className="bg-dark-200 text-white"
                   href={`/documents/${notification.roomId}`}
                   showActions={false}
                   kinds={{
@@ -69,7 +68,7 @@ const Notifications = () => {
                         {...props}
                         title={props.inboxNotification.activities[0].data.title}
                         aside={
-                          <InboxNotification.Icon className="bg-transparent">
+                          <InboxNotification.Icon>
                             <Image
                               src={
                                 (props.inboxNotification.activities[0].data
@@ -78,7 +77,7 @@ const Notifications = () => {
                               width={36}
                               height={36}
                               alt="avatar"
-                              className="rounded-full"
+                              className="shadow-light rounded border-2 border-black"
                             />
                           </InboxNotification.Icon>
                         }

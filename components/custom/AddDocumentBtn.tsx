@@ -27,7 +27,7 @@ const AddDocumentBtn = ({ userId, email }: AddDocumentBtnProps) => {
     <Button
       type="submit"
       onClick={addDocumentHandler}
-      className="gradient-blue flex gap-1 shadow-md"
+      className="flex gap-1"
       disabled={isLoading}
     >
       {isLoading ? (

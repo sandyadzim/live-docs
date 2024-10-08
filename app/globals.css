@@ -10,8 +10,6 @@
 /* ========================================== TAILWIND STYLES */
 @layer base {
   :root {
-    background: #09111f;
-    color: #fff;
     margin: 0;
   }
 
@@ -51,11 +49,7 @@
   }
 
   .shad-dialog {
-    @apply w-full max-w-[400px] rounded-xl border-none bg-doc bg-cover px-5 py-7 shadow-xl sm:min-w-[500px] !important;
-  }
-
-  .shad-dialog button {
-    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+    @apply w-full max-w-[400px] rounded-xl shadow-light border-2 border-black px-5 py-7 sm:min-w-[500px] !important;
   }
 
   .shad-select {
@@ -71,7 +65,7 @@
   }
 
   .shad-popover {
-    @apply w-[460px] border-none bg-dark-200 shadow-lg !important;
+    @apply md:max-w-[400px] max-w-[300px] w-full max-h-[500px] overflow-auto border-2 border-black shadow-light ml-2 md:ml-0;
   }
 
   .floating-toolbar {
@@ -91,7 +85,7 @@
   }
 
   .header {
-    @apply min-h-[92px] min-w-full flex-nowrap bg-dark-100 flex w-full items-center justify-between gap-2 px-4;
+    @apply min-h-[92px] min-w-full flex-nowrap flex border-b-4 bg-white border-b-black w-full items-center justify-between gap-2 px-4;
   }
 
   .document-list-container {
@@ -103,11 +97,11 @@
   }
 
   .document-list-item {
-    @apply flex items-center justify-between gap-4 rounded-lg bg-doc bg-cover p-5 shadow-xl;
+    @apply flex items-center justify-between gap-4 rounded-lg bg-p shadow-light border-2 border-black p-5;
   }
 
   .document-list-empty {
-    @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-dark-200 px-10 py-8;
+    @apply flex w-full max-w-[730px] flex-col items-center justify-center gap-5 rounded-lg bg-p shadow-light border-2 border-black px-10 py-8;
   }
 
   .document-title-input {
@@ -174,52 +168,30 @@
 .cl-avatarBox {
   width: 36px;
   height: 36px;
+  @apply shadow-light rounded border-2 border-black;
 }
 
 .cl-userButtonTrigger {
   height: fit-content !important;
 }
 
-.cl-cardBox,
-.cl-signIn-start,
-.cl-signUp-start,
-.cl-footer {
-  background: #060d18;
+.cl-userButtonTrigger:focus {
   box-shadow: none;
-  padding: 20px;
-}
-
-.cl-socialButtonsBlockButton,
-.cl-socialButtonsBlockButton:hover {
-  height: 40px;
-  background-color: #3371ff;
-  color: #fff;
-}
-
-.cl-internal-2gzuzc {
-  filter: brightness(1000%);
-}
-
-.cl-logoBox {
-  height: 52px;
 }
 
 /* ======================== Liveblocks Override */
 .lb-root {
-  --lb-accent-subtle: #0b1527;
+  /* --lb-accent-subtle: #0b1527; */
   --lb-radius: 0px;
-  --lb-dynamic-background: #1b2840;
+  /* --lb-dynamic-background: #1b2840; */
+  --lb-avatar-radius: 0;
 }
 
-.lb-comment,
-.lb-thread-comments,
-.lb-composer,
-.lb-comment-reaction {
-  background-color: #0f1c34;
-  color: #fff;
+.lb-avatar {
+  @apply shadow-light rounded border-2 border-black;
 }
 
-.lb-button {
+/* .lb-button {
   --lb-foreground-moderate: #fff;
 }
 
@@ -304,4 +276,61 @@
 
 .lb-elevation {
   background: #0f1c34;
+} */
+
+/* Animation */
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+@keyframes moveAndRotate {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(20px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(0px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-20px) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0) rotate(360deg);
+  }
+}
+
+.moving-vertical {
+  position: absolute;
+  animation: moveUpDown 3s ease-in-out infinite alternate;
+}
+
+.moving-horizontal {
+  position: absolute;
+  animation: moveLeftRight 3s ease-in-out infinite alternate;
+}
+
+.moving-rotate {
+  position: absolute;
+  animation: moveAndRotate 10s linear infinite;
+}
+
+.moving-custom {
+  position: absolute;
+  animation: moveAndRotate 10s linear infinite;
 }
