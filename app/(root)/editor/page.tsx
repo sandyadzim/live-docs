@@ -30,7 +30,7 @@ export default async function EditorPage() {
         </div>
       </Header>
 
-      {roomDocuments.data.length > 0 ? (
+      {roomDocuments?.data.length > 0 ? (
         <div className="document-list-container z-20">
           <div className="document-list-title">
             <h3 className="text-28-semibold">All documents</h3>
