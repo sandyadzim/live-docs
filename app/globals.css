@@ -69,7 +69,7 @@
   }
 
   .floating-toolbar {
-    @apply flex w-full min-w-max items-center justify-center gap-2 rounded-lg bg-dark-350 p-1.5 shadow-xl;
+    @apply flex w-full min-w-max items-center justify-center gap-2 rounded-lg bg-black p-1.5 shadow-xl;
   }
 
   .floating-toolbar-btn {
@@ -77,11 +77,11 @@
   }
 
   .toolbar-wrapper {
-    @apply z-50 custom-scrollbar w-screen overflow-auto border-y border-dark-300 bg-dark-100 pl-3 pr-4 shadow-sm;
+    @apply z-50 custom-scrollbar w-screen overflow-auto bg-p pl-3 pr-4 py-1 border-b-4 border-b-black;
   }
 
   .editor-wrapper {
-    @apply custom-scrollbar h-[calc(100vh-140px)] gap-5 overflow-auto px-5 pt-5 lg:flex-row lg:items-start lg:justify-center  xl:gap-10 xl:pt-10;
+    @apply h-[calc(100vh-140px)] gap-5 overflow-auto px-5 pt-5 lg:flex-row lg:items-start lg:justify-center  xl:gap-10 xl:pt-10;
   }
 
   .header {
@@ -113,11 +113,11 @@
   }
 
   .view-only-tag {
-    @apply rounded-md bg-dark-400/50 px-2 py-0.5 text-xs text-blue-100/50;
+    @apply rounded-md bg-p/50 px-2 py-0.5 text-xs text-white;
   }
 
   .collaborators-list {
-    @apply hidden items-center justify-end -space-x-3 overflow-hidden sm:flex;
+    @apply hidden items-center justify-end -space-x-3 overflow-hidden sm:flex px-1;
   }
 
   .share-input {
@@ -133,11 +133,11 @@
   }
 
   .comment-composer {
-    @apply w-full max-w-[800px] border border-dark-300 bg-dark-200 shadow-sm lg:w-[350px];
+    @apply w-full max-w-[800px] border-2 border-black shadow-light lg:w-[350px];
   }
 
   .comment-thread {
-    @apply w-full max-w-[800px] border border-dark-300 bg-dark-200 shadow-sm lg:w-[350px] transition-all;
+    @apply w-full max-w-[800px] border-2 border-black bg-red-500 shadow-light lg:w-[350px] transition-all;
   }
 
   .loader {
@@ -151,7 +151,7 @@
 
   /* ======================== Home Page */
   .home-container {
-    @apply relative flex min-h-screen w-full flex-col items-center gap-5 sm:gap-10;
+    @apply relative flex min-h-screen max-w-screen-2xl w-full flex-col items-center mx-auto;
   }
 
   .document-ul {
@@ -227,13 +227,16 @@
 
 .lb-inbox-notification-list-item:where(:not(:last-of-type)) {
   border-bottom: none;
-}
+} */
 
-.lb-comment-body,
 .lb-dropdown-item,
 .lb-dropdown-item-icon,
 .lb-composer-editor {
-  color: #fff;
+  color: #000;
+}
+
+.lb-comment-body {
+  color: #fff
 }
 
 .lb-composer-action {
@@ -241,10 +244,9 @@
 }
 
 .lb-comment-content {
-  background: #0b1527;
+  @apply bg-p border-2 border-black shadow-light;
   margin-top: 16px;
   padding: 12px;
-  border-radius: 4px;
   font-size: 14px;
 }
 
@@ -253,30 +255,61 @@
 .lb-composer-suggestions-list-item,
 .lb-inbox-notification-date,
 .lb-comment-author {
-  color: #b4c6ee;
+  color: #000;
 }
 
-.data-liveblocks-portal {
+/* .data-liveblocks-portal {
   color: #b4c6ee !important;
-}
+} */
 
-.lb-root:where(:not(.lb-root .lb-root)) {
+/* .lb-root:where(:not(.lb-root .lb-root)) {
   --lb-dynamic-background: #1b2840;
   color: #fff;
-}
+} */
 
 .lb-composer-editor :where([data-placeholder]) {
-  color: #b4c6ee;
+  @apply text-black/50;
   font-size: 14px;
 }
 
-.lb-lexical-floating-threads-thread:where([data-resolved]) {
+/* .lb-lexical-floating-threads-thread:where([data-resolved]) {
   opacity: 40%;
-}
+} */
 
-.lb-elevation {
+/* .lb-elevation {
   background: #0f1c34;
 } */
+
+/* Home */
+.bg-home-pattern {
+  position: relative;
+  background-color: #E7E6E9;
+}
+
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(/assets/images/pattern.png);
+  opacity: 0.2;
+}
+
+.bg-article {
+  background-image: url(/assets/images/article/pattern-article.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 10px #000;
+  paint-order: stroke fill;
+}
+
+.text-shadow {
+  text-shadow: 5px 5px 1px #000, 5px 5px 1px #000, 5px 5px 1px #000, 5px 5px 1px #000;
+}
 
 /* Animation */
 @keyframes moveUpDown {
@@ -285,6 +318,15 @@
   }
   100% {
     transform: translateY(20px);
+  }
+}
+
+@keyframes moveDownUp {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -315,9 +357,18 @@
   }
 }
 
+.moving-hero {
+  animation: moveUpDown 5s ease-in-out infinite alternate;
+}
+
 .moving-vertical {
   position: absolute;
   animation: moveUpDown 3s ease-in-out infinite alternate;
+}
+
+.moving-vertical-reverse {
+  position: absolute;
+  animation: moveDownUp 3s ease-in-out infinite alternate;
 }
 
 .moving-horizontal {

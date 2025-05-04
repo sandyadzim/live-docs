@@ -1,4 +1,4 @@
-import { Syne as FontSans } from 'next/font/google'
+import { Syne } from 'next/font/google'
 
 import { cn } from '@/lib/utils'
 import './globals.css'
@@ -7,10 +7,10 @@ import { ClerkProvider } from '@clerk/nextjs'
 import { neobrutalism } from '@clerk/themes'
 import { Provider } from './Provider'
 
-const fontSans = FontSans({
+const syne = Syne({
   subsets: ['latin'],
-  variable: '--font-sans',
-  weight: ['400', '500', '600', '700'],
+  variable: '--font-syne',
+  weight: ['400', '500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
         <body
           className={cn(
             'min-h-screen font-sans antialiased',
-            fontSans.variable
+            syne.variable
           )}
         >
           <Provider>{children}</Provider>

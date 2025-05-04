@@ -14,15 +14,17 @@ const Header = ({ children, className, isHome = false }: HeaderProps) => {
             src="/assets/icons/logo.svg"
             alt="Logo with name"
             width={50}
-            height={30}
-            className="hidden md:block"
+            height={0}
+            priority
+            className="w-[50px] h-auto hidden md:block"
           />
           <Image
             src="/assets/icons/logo.svg"
             alt="Logo"
             width={32}
-            height={32}
-            className="mr-2 md:hidden"
+            height={0}
+            priority
+            className="w-8 h-8 mr-2 md:hidden"
           />
         </div>
 
