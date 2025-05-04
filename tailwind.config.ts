@@ -42,6 +42,7 @@ const config: Config = {
         y: '#FFC700',
         g: '#5CF1A4',
         r: '#FF2626',
+        b: '#69D3FA',
 
         // light mode
         bg: '#dfe5f2',
@@ -72,7 +73,7 @@ const config: Config = {
         heading: '700',
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
+        sans: ['var(--font-syne)'],
       },
       keyframes: {
         'accordion-down': {

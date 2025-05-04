@@ -1,23 +1,23 @@
-import Header from '@/components/custom/Header'
-import AddDocumentBtn from '@/components/custom/AddDocumentBtn'
-import DeleteModal from '@/components/custom/DeleteModal'
-import Notifications from '@/components/custom/Notifications'
-import { SignedIn, UserButton } from '@clerk/nextjs'
-import { currentUser } from '@clerk/nextjs/server'
-import Image from 'next/image'
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { getDocuments } from '@/lib/actions/room.action'
-import { dateConverter } from '@/lib/utils'
+import Header from "@/components/custom/Header";
+import AddDocumentBtn from "@/components/custom/AddDocumentBtn";
+import DeleteModal from "@/components/custom/DeleteModal";
+import Notifications from "@/components/custom/Notifications";
+import { SignedIn, UserButton } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getDocuments } from "@/lib/actions/room.action";
+import { dateConverter } from "@/lib/utils";
 
 export default async function EditorPage() {
-  const clerkUser = await currentUser()
+  const clerkUser = await currentUser();
 
-  if (!clerkUser) redirect('/sign-in')
+  if (!clerkUser) redirect("/sign-in");
 
   const roomDocuments = await getDocuments(
     clerkUser.emailAddresses[0].emailAddress
-  )
+  );
 
   return (
     <main className="home-container relative">
@@ -31,7 +31,7 @@ export default async function EditorPage() {
       </Header>
 
       {roomDocuments?.data.length > 0 ? (
-        <div className="document-list-container z-20">
+        <div className="document-list-container z-20 mt-5 sm:mt-10">
           <div className="document-list-title">
             <h3 className="text-28-semibold">All documents</h3>
             <AddDocumentBtn
@@ -119,5 +119,5 @@ export default async function EditorPage() {
         className="moving-horizontal right-[18%] top-[450px] hidden md:block"
       />
     </main>
-  )
+  );
 }

@@ -23,7 +23,7 @@ const Collaborative = ({
   const [isLoading, setIsLoading] = useState(false)
 
   const containerRef = useRef<HTMLDivElement>(null)
-  const inputRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const updateTitleHandler = async (
     e: React.KeyboardEvent<HTMLInputElement>
@@ -92,7 +92,7 @@ const Collaborative = ({
                   placeholder="Enter title"
                   onChange={(e) => setDocumentTitle(e.target.value)}
                   onKeyDown={updateTitleHandler}
-                  disable={!isEditing}
+                  disabled={!isEditing}
                   className="document-title-input"
                 />
               ) : (
@@ -103,12 +103,12 @@ const Collaborative = ({
 
               {currentUserType === 'editor' && !isEditing && (
                 <Image
-                  src="/assets/icons/edit.svg"
+                  src="/assets/icons/pen.svg"
                   alt="edit"
-                  width={24}
-                  height={24}
+                  width={20}
+                  height={20}
                   onClick={() => setIsEditing(true)}
-                  className="pointer"
+                  className="cursor-pointer"
                 />
               )}
 

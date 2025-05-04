@@ -64,7 +64,7 @@ export function Editor({
           {status === 'not-loaded' || status === 'loading' ? (
             <Loader />
           ) : (
-            <div className="editor-inner min-h-[1100px] relative mb-5 h-fit w-full max-w-[800px] shadow-md lg:mb-10">
+            <div className="editor-inner min-h-[500px] relative mb-5 h-fit w-full max-w-[800px] border-2 border-black shadow-light lg:mb-10">
               <RichTextPlugin
                 contentEditable={
                   <ContentEditable className="editor-input h-full" />
